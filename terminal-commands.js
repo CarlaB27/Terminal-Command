@@ -1,5 +1,3 @@
-module.exports.ls = () => {
-};
 const fs = require('fs');
 
 module.exports.ls = () => {
@@ -9,4 +7,20 @@ module.exports.ls = () => {
         }, '');
         console.log(filesToString);
     });
+};
+
+module.exports.touch = (fileName) => {
+    fs.writeFile(fileName, '', function (err) {
+        if (err) throw err;
+        console.log(`${fileName}` created);
+    });
+
+};
+
+module.exports.mkdir = (directoryName) => {
+    fs.mkdir(`./${directoryName}`, function (err) {
+        if (err) throw err;
+        console.log(`${directoryName}` created);
+    });
+
 };
